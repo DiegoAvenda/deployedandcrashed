@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Se cayó en producción</h1>
+			<p>
+				Hola, soy Diego Avendaño, full Stack Developer enfocado en SvelteKit, MongoDB y OAuth 2.0
+			</p>
+			<p>
+				Bienvenido a mi blog, donde comparto mis experiencias, consejos y tutoriales sobre desarrollo web, buenas prácticas y cómo evitar que todo se caiga en producción.
+			</p>
+			<p>Mi verdadero interés es construir una comunidad de desarrolladores que compartan el mismo interés por aprender.
+
+				En este blog no busco ser un profesor ni tener todas las respuestas. Al contrario, quiero aprender contigo, compartir mis aciertos y mis errores, y crecer juntos como profesionales.
+				
+				Si algo de lo que comparto aquí te resulta útil, ¡genial! Pero lo que más me encantaría es poder ayudarte en tu camino para convertirte en un desarrollador web. Al fin y al cabo, todos empezamos en algún lugar, y sé lo valioso que es tener a alguien que te guíe o simplemente te acompañe en el proceso.
+				
+				</p>
+		</main>
+		<Footer />
+	</body>
+</html>
