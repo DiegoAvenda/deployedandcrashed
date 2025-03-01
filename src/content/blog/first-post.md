@@ -1,11 +1,13 @@
 ---
-title: "Google Oauth 2.0"
+title: "Sveltekit + Google Oauth 2"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "28/Feb/2025"
 heroImage: "/oauth_google.png"
 ---
 
-Quiero mostrar la manera mas simple de usar google oauth 2. Omitiendo varios pasos que hacen nuestro proceso mas seguro para que sea los mas facil de entender. Definitivamente no debes usar esto en una aplicacion real, es solo con el proposito de aprender el flujo de oauth. En un siguiente post, mostrare todos los pasos que se deben agregar, esperando que para entonces ya tengas una mejor idea de como implementar oauth 2.0, que en escencia, se compone de 3 pasos:
+Quiero mostrar la manera mas simple de usar google oauth 2. Omitiendo varios pasos que hacen nuestro proceso mas seguro para que sea los mas facil de entender. Definitivamente no debes usar esto en una aplicacion real, es solo con el proposito de aprender el flujo de oauth. En un siguiente post, mostrare todos los pasos que se deben agregar. Me estoy basando principalmente en Lucia Auth https://lucia-auth.com/tutorials/google-oauth/sveltekit
+
+Oauth 2.0 se compone principalmente de 3 pasos:
 
 1. Creamos un endpoint en donde se generará la url de autorizacion que nos lleva a esta ventana:
 
@@ -106,6 +108,7 @@ export async function GET(event) {
 
   return new Response(null, {
     status: 302,
+    //redirigimos a nuestra pagina principal
     headers: { Location: `/?name=${encodedName}` },
   })
 }
@@ -119,6 +122,18 @@ function decodeIdToken(idToken) {
     return JSON.parse(Buffer.from(payloadBase64, "base64").toString("utf-8"))
   } catch {
     return null
+  }
+}
+```
+
+Creamos routes/+page.js para leer el nommbre de la url y enviarlo a /routes/+page.svelte
+
+```javascript
+export async function load({ url }) {
+  const name = url.searchParams.get("name")
+
+  return {
+    name,
   }
 }
 ```
