@@ -5,7 +5,7 @@ pubDate: "28/Feb/2025"
 heroImage: "/oauth_google.png"
 ---
 
-Quiero mostrar la manera mas simple de usar google oauth 2. Omitiendo varios pasos que hacen nuestro proceso mas seguro para que sea los mas facil de entender. Definitivamente no debes usar esto en una aplicacion real, es solo con el proposito de aprender el flujo de oauth. En un siguiente post, mostrare todos los pasos que se deben agregar. Me estoy basando principalmente en Lucia Auth https://lucia-auth.com/tutorials/google-oauth/sveltekit
+Quiero mostrar la manera mas simple de usar google oauth 2 omitiendo varios pasos que hacen nuestro proceso mas seguro, para que sea los mas facil de entender. Definitivamente no debes usar esto en una aplicacion real, es solo con el proposito de aprender el flujo de oauth. En un siguiente post, mostraré todos los pasos que se deben agregar. Me estoy basando principalmente en Lucia Auth https://lucia-auth.com/tutorials/google-oauth/sveltekit y aqui puedes ver el codigo completo de este post https://github.com/DiegoAvenda/ecommerce-template
 
 Oauth 2.0 se compone principalmente de 3 pasos:
 
@@ -13,9 +13,9 @@ Oauth 2.0 se compone principalmente de 3 pasos:
 
 ![Alt text](/google-consent-screen.png)
 
-2. Creamos el endpoint al que google redirigira al usuario despues que éste acceda a su cuenta de google desde la url de autorizacion. En donde recibiremos un code.
+2. Despues de que el usuario acceda a su cuenta, google lo redirigira a un segundo endpoint que tenemos que crear, en donde recibiremos un codigo.
 
-3. enviamos el code de vuelta a google, junto con el google client ID y el client secret, para recibir un JWT (JSON Web Token), el cual contiene la informacion del usuario, como su nombre, email e imagen.
+3. Enviamos el codigo de vuelta a google, junto con nuestro client ID y client secret, para recibir un JWT (JSON Web Token), el cual contiene la informacion del usuario, como su nombre, email e imagen.
 
 ### Crear una aplicación OAuth
 
