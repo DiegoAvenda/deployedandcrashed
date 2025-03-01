@@ -102,6 +102,8 @@ export async function GET(event) {
     error(400, e)
   }
   const claims = decodeIdToken(tokens.id_token)
+
+  //aqui esta el nombre del usuario
   const { name } = claims
 
   const encodedName = encodeURIComponent(name)
@@ -126,16 +128,20 @@ function decodeIdToken(idToken) {
 }
 ```
 
-Creamos routes/+page.js para leer el nommbre de la url y enviarlo a /routes/+page.svelte
+Al final seremos redirigidos a la pagina principal de nuestra app en donde podemos obtener el nombre del usuario desde la url
 
 ```javascript
-export async function load({ url }) {
-  const name = url.searchParams.get("name")
+// routes/+page.svelte
+<script>
+	import { page } from '$app/stores';
 
-  return {
-    name,
-  }
-}
+	let username = $page.url.searchParams.get('name');
+</script>
+	<a class="btn my-6" href="/api/oauth/google">Login with google<a>
+	<p>Bienvenido {username}</p>
+
 ```
 
-Y listo!, deberias ser redireccionado a '/' y ver tu nombre si usaste tu cuenta de google.
+Y listo! deberias poder ver tu nombre si usaste tu cuenta de google.
+
+![Alt text](/maddox.png)
