@@ -9,11 +9,11 @@ Quiero mostrar la manera mas simple de usar google oauth 2 omitiendo varios paso
 
 Oauth 2.0 se compone principalmente de 3 pasos:
 
-1. Creamos un endpoint en donde se generará la url de autorizacion que nos lleva a esta ventana:
+1. Creamos un endpoint o ruta API en donde se generará la url de autorizacion que nos lleva a esta ventana:
 
 ![Alt text](/google-consent-screen.png)
 
-2. Despues de que el usuario acceda a su cuenta, google lo redirigira a un segundo endpoint que tenemos que crear, en donde recibiremos un codigo.
+2. Despues de que el usuario acceda a su cuenta, google lo redirigira a una segunda ruta API que tenemos que crear, en donde recibiremos un codigo.
 
 3. Enviamos el codigo de vuelta a google, junto con nuestro client ID y client secret, para recibir un JWT (JSON Web Token), el cual contiene la informacion del usuario, como su nombre, email e imagen.
 
